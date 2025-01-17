@@ -6,13 +6,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from dotenv import load_dotenv
 import time
 
-# Load environment variables from the .env file
-load_dotenv()
-
-# Retrieve secrets from the .env file
+# Retrieve secrets from GitHub Actions environment variables
 BIZOM_USERNAME = os.getenv("BIZOM_USERNAME")
 BIZOM_PASSWORD = os.getenv("BIZOM_PASSWORD")
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
