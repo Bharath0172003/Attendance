@@ -9,12 +9,13 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 # Retrieve secrets from GitHub Actions environment variables
+# Retrieve secrets from GitHub Actions environment variables
 BIZOM_USERNAME = os.getenv("BIZOM_USERNAME")
 BIZOM_PASSWORD = os.getenv("BIZOM_PASSWORD")
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
 AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
 BUCKET_NAME = os.getenv("BUCKET_NAME")
-DOWNLOAD_DIR = os.getenv("DOWNLOAD_DIR")
+DOWNLOAD_DIR = os.getenv("DOWNLOAD_DIR", "/tmp")  # Default to '/tmp' if not set
 
 # Ensure the download directory exists
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
