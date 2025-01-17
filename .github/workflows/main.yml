@@ -32,4 +32,3 @@ jobs:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
           BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
-          DOWNLOAD_DIR: ${{ secrets.DOWNLOAD_DIR }}
