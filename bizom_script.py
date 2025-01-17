@@ -16,14 +16,21 @@ AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
 BUCKET_NAME = os.getenv("BUCKET_NAME")
 
 # Define the download directory
-DOWNLOAD_DIR = "C:\\temp"  # Change this as needed, or use a default value
+DOWNLOAD_DIR = "/tmp"  # Change this as needed for the CI/CD environment
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 # Initialize WebDriver with download preferences
 options = webdriver.ChromeOptions()
-prefs = {"download.default_directory": DOWNLOAD_DIR}  # Ensure the correct variable name is used
+
+# Use headless mode for CI/CD
+options.add_argument("--headless")  # Run in headless mode
+options.add_argument("--no-sandbox")  # Necessary for some environments
+options.add_argument("--disable-dev-shm-usage")  # Disables shared memory usage
+
+prefs = {"download.default_directory": DOWNLOAD_DIR}
 options.add_experimental_option("prefs", prefs)
 
+# Path to ChromeDriver, can also be set in the environment or GitHub Actions secrets
 driver = webdriver.Chrome(options=options)
 driver.maximize_window()
 
