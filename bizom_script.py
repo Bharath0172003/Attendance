@@ -15,10 +15,9 @@ BIZOM_PASSWORD = os.getenv("BIZOM_PASSWORD")
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")
 AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")
 BUCKET_NAME = os.getenv("BUCKET_NAME")
-DOWNLOAD_DIR = os.getenv("DOWNLOAD_DIR", "/tmp")  # Default to '/tmp' if not set
 
-# Ensure the download directory exists
-os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+download_dir = "C:\\temp"
+os.makedirs(download_dir, exist_ok=True)
 
 # Initialize WebDriver with download preferences
 options = webdriver.ChromeOptions()
